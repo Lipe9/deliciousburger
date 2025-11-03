@@ -70,6 +70,14 @@ function abrirModalProduto(produto) {
           optionsContainer.appendChild(button);
         });
         variationDiv.appendChild(optionsContainer);
+      } else if (variation.type === 'textarea') {
+        // Adicionar campo de texto para personalização
+        const textarea = document.createElement('textarea');
+        textarea.name = variation.name;
+        textarea.placeholder = variation.placeholder || 'Digite sua personalização aqui...';
+        textarea.rows = variation.rows || 3;
+        textarea.style.width = '100%';
+        variationDiv.appendChild(textarea);
       }
 
       optionsContainer.appendChild(variationDiv);
@@ -155,6 +163,10 @@ btnAdicionarCarrinho.addEventListener('click', () => {
       }
       selectedOptions[name].push(value);
     });
+    const textareas = optionsContainer.querySelectorAll('textarea');
+    textareas.forEach(textarea => {
+      selectedOptions[textarea.name] = textarea.value;
+    });
   }
 
   adicionarAoCarrinho(nome, preco, imagem, selectedOptions);
@@ -183,6 +195,10 @@ btnComprarAgora.addEventListener('click', () => {
         selectedOptions[name] = [];
       }
       selectedOptions[name].push(value);
+    });
+    const textareas = optionsContainer.querySelectorAll('textarea');
+    textareas.forEach(textarea => {
+      selectedOptions[textarea.name] = textarea.value;
     });
   }
 

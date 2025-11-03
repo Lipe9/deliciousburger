@@ -125,4 +125,29 @@ deliveryForm.addEventListener('submit', (e) => {
   }
 });
 
+// Função para adicionar promoção ao carrinho
+function adicionarPromocaoAoCarrinho(nome, preco, details) {
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  const item = {
+    nome: nome,
+    preco: parseFloat(preco),
+    quantidade: 1,
+    details: details
+  };
+  carrinho.push(item);
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  atualizarContadorCarrinho();
+  exibirNotificacao(`${nome} adicionado ao carrinho!`);
+}
+
+// Event listeners para botões de comprar promoção
+document.querySelectorAll('.btn-comprar-promocao').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const nome = btn.getAttribute('data-nome');
+    const preco = btn.getAttribute('data-preco');
+    const details = btn.getAttribute('data-details');
+    adicionarPromocaoAoCarrinho(nome, preco, details);
+  });
+});
+
 

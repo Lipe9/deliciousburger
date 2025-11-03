@@ -1,0 +1,66 @@
+#sobre{
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+    color:black;
+    min-height: 110vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+.sobre-container{
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.sobre-intro, .sobre-missao, .sobre-historia {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: left;
+}
+.sobre-intro h1, .sobre-missao h2, .sobre-historia h2 {
+    color: orange;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+.sobre-info {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+.horario-funcionamento, .formas-pagamento{
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    text-align: left;
+}
+.horario-funcionamento h2, .formas-pagamento h2{
+    color: orange;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+.horario-funcionamento p{
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+  .pagamento-icons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.pagamento-icons span{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+.pagamento-icons i{
+    color: orange;
+}

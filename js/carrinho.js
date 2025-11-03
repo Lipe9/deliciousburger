@@ -142,3 +142,18 @@ document.querySelectorAll('.btn-comprar').forEach((botao) => {
     adicionarAoCarrinho(nome, preco, imagem);
   });
 });
+
+// Função para adicionar promoção ao carrinho (compatível com carrinho.js)
+function adicionarPromocaoAoCarrinho(nome, preco, details) {
+  const item = {
+    produto: nome,
+    preco: parseFloat(preco),
+    imagem: 'img/logo.jpg', // imagem padrão para promoções
+    opcoes: { details: details }
+  };
+  carrinho.push(item);
+  salvarCarrinho();
+  atualizarContadorCarrinho();
+  atualizarMiniCarrinho();
+  exibirNotificacao(`${nome} adicionado ao carrinho!`);
+}
