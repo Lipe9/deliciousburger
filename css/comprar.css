@@ -1,0 +1,209 @@
+/* Estilo para a página de checkout */
+#checkout {
+    min-height: 100vh;
+    padding: 120px 20px 40px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#checkout h1 {
+    font-family: 'Lobster', cursive;
+    color: orange;
+    margin-bottom: 30px;
+}
+
+.checkout-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.form-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-section h2 {
+    color: orange;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.payment-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.payment-card {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.payment-card:hover {
+    border-color: orange;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.payment-card.selected {
+    border-color: orange;
+    background: #fff5e6;
+}
+
+.payment-card input {
+    display: none;
+}
+
+.payment-card label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.payment-card i {
+    font-size: 2rem;
+    color: orange;
+    margin-bottom: 5px;
+}
+
+.payment-card span {
+    font-weight: 500;
+    color: #333;
+}
+
+.card-type-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.card-type-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.card-type-label input {
+    margin-right: 8px;
+}
+
+.card-type-label span {
+    color: #333;
+}
+
+.btn-next, .btn-prev, .btn-submit {
+    background: orange;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    margin-right: 10px;
+}
+
+.btn-next:hover, .btn-prev:hover, .btn-submit:hover {
+    background: darkorange;
+}
+
+.btn-submit {
+    background: black;
+}
+
+.btn-submit:hover {
+    background: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+.order-summary {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 120px;
+}
+
+.order-summary h3 {
+    color: orange;
+    margin-bottom: 20px;
+}
+
+#order-items {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#order-items li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#total-price {
+    font-weight: bold;
+    color: orange;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+    .order-summary {
+        position: static;
+    }
+}

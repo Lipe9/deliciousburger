@@ -1,0 +1,404 @@
+<!-- Declaração do tipo de documento HTML5 -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configuração de charset para suporte a caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Meta tag para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para o arquivo CSS principal de estilos -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Link para o arquivo CSS específico dos produtos -->
+    <link rel="stylesheet" href="css/produto.css">
+    <!-- Importação da fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Importação da fonte Lobster do Google Fonts para títulos -->
+   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+   <!-- Importação dos ícones Font Awesome -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Título da página -->
+    <title>Trabalho</title>
+</head>
+<body>
+<!-- Cabeçalho do site com logo, navegação e menu hambúrguer para mobile -->
+<header>
+  <!-- Logo da lanchonete -->
+  <div class="logo">
+    <img src="img/logo.png" alt="Logo" class="logo-img">
+  </div>
+  <!-- Navegação principal com links para seções da página -->
+<nav>
+  <a href="#home">Home</a> 
+  <a href="#produto">Produtos</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#contato">Contato</a>
+  <a href="#carrinho" class="carrinho-link">
+    <i class="fas fa-shopping-cart"></i> <span id="cart-count" class="cart-count">0</span>
+  </a>
+</a>
+</nav>
+  <!-- Botão hambúrguer para abrir menu mobile -->
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+  <!-- Container para notificações dinâmicas -->
+  <div id="notificacao-container"></div>
+  <!-- Menu mobile que aparece ao clicar no hambúrguer -->
+  <div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#produto">Produtos</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#contato">Contato</a>
+  <a href="#carrinho" class="carrinho-link">
+    <i class="fas fa-shopping-cart"></i> <span id="cart-count-mobile" class="cart-count">0</span>
+  </a>
+</div>
+<!-- Conteúdo principal da página -->
+<main>
+   <!-- Seção Home com fundo e mensagem de boas-vindas -->
+   <section id="home" class="pagina">
+    <div class="hero">
+      <h1>Bem-vindo à Nossa Lanchonete</h1>
+      <p>Delicie-se com nossos sanduíches frescos, tacos deliciosos e bebidas refrescantes. O melhor lugar para uma pausa rápida e saborosa!</p>
+      <a href="#produto" class="btn-hero">Ver Produtos</a>
+    </div>
+   </section>
+   <!-- Seção Produtos com busca, filtros e cards de produtos -->
+   <section id="produto" class="pagina">
+    <h1>Nossos Produtos</h1>
+    <!-- Container para barra de busca e filtros -->
+    <div class="search-filter-container">
+      <!-- Campo de entrada para buscar produtos -->
+      <input type="text" id="search-bar" placeholder="Buscar produtos...">
+      <!-- Botões de filtro por categoria -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="comida">Comida</button>
+        <button class="filter-btn" data-filter="bebida">Bebida</button>
+        <button class="filter-btn" data-filter="doces">Doces</button>
+        <button class="filter-btn" data-filter="sorvete">Sorvete</button>
+        <button class="filter-btn" data-filter="combo">Combos</button>
+      </div>
+    </div>
+    <!-- Cards de ícones para filtrar por categoria -->
+    <div class="icon-cards">
+      <div class="icon-card" data-category="comida">
+        <i class="fas fa-hamburger"></i>
+        <p>Comida</p>
+      </div>
+      <div class="icon-card" data-category="bebida">
+        <i class="fas fa-coffee"></i>
+        <p>Bebida</p>
+      </div>
+      <div class="icon-card" data-category="doces">
+        <i class="fas fa-cookie"></i>
+        <p>Doces</p>
+      </div>
+      <div class="icon-card" data-category="sorvete">
+        <i class="fas fa-ice-cream"></i>
+        <p>Sorvete</p>
+      </div>
+    </div>
+  <!-- Container para os cards de produtos -->
+  <div class="produtos-container">
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="comida" data-details="Hambúrguer artesanal com carne bovina 180g, queijo cheddar, alface, tomate e molho especial. Perfeito para uma refeição rápida e deliciosa." data-variations='[{"type": "checkbox", "name": "Ingredientes Extras", "options": ["Carne Extra (+R$5)", "Bacon (+R$3)", "Queijo Extra (+R$2)"]}, {"type": "checkbox", "name": "Remover Ingredientes", "options": ["Sem Tomate", "Sem Alface", "Sem Molho"]}, {"type": "select", "name": "Quantidade", "options": ["1", "2", "3", "4", "5"]}]'>
+      <img src="img/IMG-20251006-WA0000.jpg" alt="hambúrguer" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Hambúrguer</h3>
+      <p class="preco">R$15,90</p>
+    </div>
+
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="comida" data-details="Taco mexicano autêntico com carne moída temperada, queijo ralado, alface fresca e molho picante. Uma opção leve e saborosa." data-variations='[{"type": "checkbox", "name": "Ingredientes Extras", "options": ["Queijo Extra (+R$2)", "Molho Picante (+R$1)"]}, {"type": "checkbox", "name": "Remover Ingredientes", "options": ["Sem Alface", "Sem Molho"]}, {"type": "select", "name": "Quantidade", "options": ["1", "2", "3", "4", "5"]}]'>
+      <img src="img/IMG-20251006-WA0002.jpg" alt="Taco" data-imagem="img/IMG-20251006-WA0002.jpg">
+      <h3>Taco</h3>
+      <p class="preco">R$12,50</p>
+    </div>
+
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="bebida" data-details="Refrigerante Coca-Cola, gelado e refrescante. Ideal para acompanhar suas refeições." data-variations='[{"type": "checkbox", "name": "Tamanho", "options": ["350ml", "600ml (+R$2)", "1L (+R$4)"]}, {"type": "checkbox", "name": "Tipo", "options": ["Normal", "Zero"]}, {"type": "select", "name": "Quantidade", "options": ["1", "2", "3", "4", "5"]}]'>
+      <img src="img/IMG-20251006-WA0001.jpg" alt="Refri" data-imagem="img/IMG-20251006-WA0001.jpg">
+      <h3>Coca Cola</h3>
+      <p class="preco">R$5</p>
+    </div>
+    <!-- Card de produto -->
+<div class="card-produto" data-category="bebida" data-details="Café expresso fresco, preparado com grãos selecionados. Uma bebida energética para começar o dia." data-variations='[{"type": "select", "name": "Quantidade", "options": ["1", "2", "3", "4", "5"]}]'>
+      <img src="img/IMG-20251006-WA0003.jpg" alt="Café" data-imagem="img/IMG-20251006-WA0003.jpg">
+      <h3>Café</h3>
+      <p class="preco">R$4,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="bebida" data-details="Suco natural de laranja 300ml, feito com frutas frescas. Rico em vitamina C e refrescante.">
+      <img src="img/IMG-20251006-WA0003.jpg" alt="Suco de Laranja" data-imagem="img/IMG-20251006-WA0003.jpg">
+      <h3>Suco de Laranja</h3>
+      <p class="preco">R$7,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="bebida" data-details="Leite integral 300ml, gelado e cremoso. Fonte de cálcio e proteínas.">
+      <img src="img/IMG-20251006-WA0003.jpg" alt="Leite" data-imagem="img/IMG-20251006-WA0003.jpg">
+      <h3>Leite</h3>
+      <p class="preco">R$3,50</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="bebida" data-details="Chá verde orgânico 300ml, antioxidante e relaxante. Perfeito para momentos de pausa.">
+      <img src="img/IMG-20251006-WA0003.jpg" alt="Chá Verde" data-imagem="img/IMG-20251006-WA0003.jpg">
+      <h3>Chá Verde</h3>
+      <p class="preco">R$5,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="bebida" data-details="Água mineral 500ml, pura e hidratante. Essencial para o dia a dia.">
+      <img src="img/IMG-20251006-WA0003.jpg" alt="Água" data-imagem="img/IMG-20251006-WA0003.jpg">
+      <h3>Água</h3>
+      <p class="preco">R$2,50</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="comida" data-details="Pizza marguerita com molho de tomate, queijo mussarela e manjericão fresco. Porção individual.">
+      <img src="img/IMG-20251006-WA0000.jpg" alt="Pizza" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Pizza</h3>
+      <p class="preco">R$28,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="comida" data-details="Hot dog tradicional com salsicha, molho de tomate, mostarda e batata palha. Clássico e irresistível.">
+      <img src="img/IMG-20251006-WA0000.jpg" alt="Hot Dog" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Hot Dog</h3>
+      <p class="preco">R$10,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="comida" data-details="Batata frita crocante, salgada e dourada. Acompanhamento perfeito para qualquer refeição.">
+      <img src="img/IMG-20251006-WA0000.jpg" alt="Batata Frita" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Batata Frita</h3>
+      <p class="preco">R$8,50</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="comida" data-details="Salada mista com alface, tomate, cenoura, pepino e molho leve. Opção saudável e fresca.">
+      <img src="img/IMG-20251006-WA0000.jpg" alt="Salada" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Salada</h3>
+      <p class="preco">R$9,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="comida" data-details="Sanduíche de frango grelhado com alface, tomate e maionese caseira. Leve e saboroso.">
+      <img src="img/IMG-20251006-WA0000.jpg" alt="Sanduíche de Frango" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Sanduíche de Frango</h3>
+      <p class="preco">R$11,50</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="doces" data-details="Delicioso bolo de chocolate, perfeito para adoçar o seu dia.">
+      <img src="img/fundo.jpg" alt="Bolo" data-imagem="img/fundo.jpg">
+      <h3>Bolo de Chocolate</h3>
+      <p class="preco">R$15,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="doces" data-details="Cupcake fofinho com cobertura de baunilha, ideal para uma sobremesa leve.">
+      <img src="img/fundo.jpg" alt="Cupcake" data-imagem="img/fundo.jpg">
+      <h3>Cupcake de Baunilha</h3>
+      <p class="preco">R$8,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="doces" data-details="Brownie denso e chocolateado, uma explosão de sabor.">
+      <img src="img/fundo.jpg" alt="Brownie" data-imagem="img/fundo.jpg">
+      <h3>Brownie</h3>
+      <p class="preco">R$10,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="doces" data-details="Torta de frutas frescas, leve e refrescante.">
+      <img src="img/fundo.jpg" alt="Torta" data-imagem="img/fundo.jpg">
+      <h3>Torta de Frutas</h3>
+      <p class="preco">R$18,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="doces" data-details="Pudim cremoso de leite condensado, clássico e irresistível.">
+      <img src="img/fundo.jpg" alt="Pudim" data-imagem="img/fundo.jpg">
+      <h3>Pudim</h3>
+      <p class="preco">R$12,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="sorvete" data-details="Sorvete cremoso de baunilha, refrescante e delicioso.">
+      <img src="img/logo.jpg" alt="Sorvete" data-imagem="img/logo.jpg">
+      <h3>Sorvete de Baunilha</h3>
+      <p class="preco">R$12,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="sorvete" data-details="Sorvete rico em chocolate, perfeito para os amantes de cacau.">
+      <img src="img/logo.jpg" alt="Sorvete" data-imagem="img/logo.jpg">
+      <h3>Sorvete de Chocolate</h3>
+      <p class="preco">R$12,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="sorvete" data-details="Sorvete de morango fresco, leve e frutado.">
+      <img src="img/logo.jpg" alt="Sorvete" data-imagem="img/logo.jpg">
+      <h3>Sorvete de Morango</h3>
+      <p class="preco">R$12,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="sorvete" data-details="Sorvete de pistache, com sabor único e cremoso.">
+      <img src="img/logo.jpg" alt="Sorvete" data-imagem="img/logo.jpg">
+      <h3>Sorvete de Pistache</h3>
+      <p class="preco">R$14,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="sorvete" data-details="Sorvete de limão, refrescante e cítrico.">
+      <img src="img/logo.jpg" alt="Sorvete" data-imagem="img/logo.jpg">
+      <h3>Sorvete de Limão</h3>
+      <p class="preco">R$12,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="combo" data-details="Combo especial: Hambúrguer + Batata Frita + Coca Cola. Uma refeição completa e deliciosa.">
+      <img src="img/IMG-20251006-WA0000.jpg" alt="Combo 1" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Combo Hambúrguer</h3>
+      <p class="preco">R$25,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="combo" data-details="Combo irresistível: Hot Dog + Sorvete de Baunilha + Chá Verde. Doce e salgado em um só.">
+      <img src="img/IMG-20251006-WA0000.jpg" alt="Combo 2" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Combo Hot Dog</h3>
+      <p class="preco">R$22,00</p>
+    </div>
+    <!-- Card de produto -->
+    <div class="card-produto" data-category="combo" data-details="Combo saudável: Salada + Suco de Laranja + Café. Leve e energizante.">
+      <img src="img/IMG-20251006-WA0000.jpg" alt="Combo 3" data-imagem="img/IMG-20251006-WA0000.jpg">
+      <h3>Combo Saudável</h3>
+      <p class="preco">R$18,00</p>
+    </div>
+  </div>
+</section>
+   </section>
+   <!-- Seção Sobre -->
+   <section id="sobre" class="pagina">
+    <h1>Sobre Nós</h1>
+    <div class="sobre-container">
+      <div class="sobre-intro">
+        <p>Somos uma lanchonete apaixonada por comida de qualidade. Fundada em 2025, nossa missão é oferecer refeições rápidas e deliciosas para todos os gostos. Utilizamos ingredientes frescos e selecionados para garantir o melhor sabor em cada mordida.</p>
+        <p>Venha nos visitar e experimente nossas especialidades!</p>
+      </div>
+      <div class="sobre-missao">
+        <h2>Nossa Missão</h2>
+        <p>Proporcionar uma experiência culinária excepcional, combinando rapidez, qualidade e atendimento amigável. Acreditamos que uma boa refeição pode tornar o dia de qualquer pessoa melhor.</p>
+      </div>
+      <div class="sobre-historia">
+        <h2>Nossa História</h2>
+        <p>Desde nossa fundação, crescemos com o apoio da comunidade local. Começamos como um pequeno ponto de venda e hoje somos referência em lanches rápidos e saborosos na região.</p>
+      </div>
+      <div class="sobre-info">
+        <div class="horario-funcionamento">
+          <h2>Horário de Funcionamento</h2>
+          <p><i class="fas fa-clock"></i> <strong>Segunda a Sexta:</strong> 8h às 18h</p>
+          <p><i class="fas fa-clock"></i> <strong>Sábado:</strong> 9h às 16h</p>
+          <p><i class="fas fa-clock"></i> <strong>Domingo:</strong> Fechado</p>
+        </div>
+        <div class="formas-pagamento">
+          <h2>Formas de Pagamento</h2>
+          <div class="pagamento-icons">
+            <span><i class="fas fa-money-bill-wave"></i> Dinheiro</span>
+            <span><i class="fas fa-credit-card"></i> Cartão de Crédito/Débito</span>
+            <span><i class="fas fa-qrcode"></i> PIX</span>
+            <span><i class="fab fa-cc-visa"></i> Visa</span>
+            <span><i class="fab fa-cc-mastercard"></i> Mastercard</span>
+            <span><i class="fab fa-cc-amex"></i> American Express</span>
+          </div>
+        </div>
+      </div>
+    </div>
+   </section>
+   <!-- Seção Contato -->
+   <section id="contato" class="pagina">
+      <h1>Contatos</h1>
+      <div class="contato-container">
+        <div class="contato-info">
+          <h2>Informações</h2>
+          <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 1234-5678</p>
+          <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contato@lanchonete.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> Rua das KJIKH, 123 - , CE</p>
+        </div>
+        <div class="contato-form">
+          <h2>Envie uma Mensagem</h2>
+          <form action="">
+            <input type="text" placeholder="Nome..." required>
+            <input type="email" placeholder="Email..." required>
+            <input type="tel" placeholder="Telefone..." required>
+            <textarea class="texto" placeholder="Mensagem..." required></textarea>
+            <input type="button" value="Enviar" class="enviar">
+          </form>
+        </div>
+      </div>
+   </section>
+</main>
+  <!-- Modal do Mini Carrinho para visualizar itens adicionados -->
+<div class="mini-carrinho" id="miniCarrinho">
+  <button id="fecharCarrinho" class="fechar-carrinho">X</button>
+  <h3>Seu Carrinho</h3>
+  <ul id="itensCarrinho"></ul>
+  <p>Total: <span id="totalCarrinho">R$ 0,00</span></p>
+  <a href="comprar.html" class="botao-destaque">Finalizar Compra</a>
+  <button id="limparCarrinho">
+    Limpar Carrinho
+  </button>
+</div>
+  <!-- Modal para detalhes do produto -->
+<div class="modal-produto" id="modalProduto">
+  <button id="fecharModalProduto" class="fechar-modal">X</button>
+  <div class="modal-content">
+    <img id="modalImagem" src="" alt="Produto" class="modal-img">
+    <h3 id="modalNome"></h3>
+    <p id="modalPreco" class="modal-preco"></p>
+    <p id="modalDetails"></p>
+    <div class="modal-buttons">
+      <button id="btnComprarAgora" class="btn-modal destaque">Comprar Agora</button>
+      <button id="btnAdicionarCarrinho" class="btn-modal">Adicionar ao Carrinho</button>
+    </div>
+  </div>
+</div>
+  <!-- Rodapé com créditos e links para redes sociais -->
+  <footer id="rodape">
+    <div class="rodape-container">
+      <div class="rodape-section">
+        <h3>Sobre Nós</h3>
+        <p>Somos uma lanchonete apaixonada por comida de qualidade. Fundada em 2025, nossa missão é oferecer refeições rápidas e deliciosas para todos os gostos. Utilizamos ingredientes frescos e selecionados para garantir o melhor sabor em cada mordida.</p>
+      </div>
+      <div class="rodape-section">
+        <h3>Contato</h3>
+        <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+        <p><i class="fas fa-envelope"></i> contato@lanchonete.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Rua das KJIKH, 123 - , CE</p>
+      </div>
+      <div class="rodape-section">
+        <h3>Horários</h3>
+        <p>Seg-Sex: 8h-18h</p>
+        <p>Sáb: 9h-16h</p>
+        <p>Dom: Fechado</p>
+      </div>
+      <div class="rodape-section">
+        <h3>Pagamentos</h3>
+        <div class="formas-pagamento-rodape">
+          <span><i class="fas fa-money-bill-wave"></i></span>
+          <span><i class="fas fa-credit-card"></i></span>
+          <span><i class="fas fa-qrcode"></i></span>
+          <span><i class="fab fa-cc-visa"></i></span>
+          <span><i class="fab fa-cc-mastercard"></i></span>
+          <span><i class="fab fa-cc-amex"></i></span>
+        </div>
+        <h3>Redes Sociais</h3>
+        <div class="redes-sociais">
+          <a href="https://instagram.com/felipezy_9" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/lipe9" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <p>&copy; Developer by Felipe.</p>
+  </footer>
+<!-- Script principal para funcionalidades da página -->
+<script src="js/script.js"></script>
+<!-- Script específico para o modal de produtos -->
+<script src="js/modal.js"></script>
+<!-- Script específico para o carrinho de compras -->
+<script src="js/carrinho.js"></script>
+</body>
+</html>
+
+
+
+
+
