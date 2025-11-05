@@ -30,8 +30,18 @@ nav a,
   transition: border-color 0.3s ease;
   font-weight: 600;
   letter-spacing: 0.5px;
-  padding: 0.9rem 0;
+  padding: 0rem 0;
   z-index: 0;
+}
+nav a.active,
+.mobile-menu a.active {
+  border-bottom: 2px solid white;
+}
+nav a:hover{
+  border-bottom: 2px solid white;
+}
+.mobile-menu a:hover{
+  border-bottom: 2px solid white;
 }
 .mobile-menu{
   display: none;
@@ -138,5 +148,88 @@ nav a,
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+#rodape{
+  background: linear-gradient(135deg, #333 0%, #000 100%);
+  color: white;
+  padding: 3rem 1rem 1rem;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+.rodape-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+.rodape-section {
+  flex: 1;
+  text-align: left;
+}
+.rodape-section h3 {
+  color: orange;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+.rodape-section p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+.rodape-section i {
+  margin-right: 0.5rem;
+  color: orange;
+}
+.formas-pagamento-rodape {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.formas-pagamento-rodape span{
+  font-size: 1.5rem;
+  color: white;
+}
+.formas-pagamento-rodape i{
+  color: white;
+}
+#rodape .redes-sociais{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+#rodape .redes-sociais a{
+  color: white;
+  font-size: 1.5em;
+  transition: transform 0.3s, color 0.3s;
+}
+#rodape .redes-sociais i{
+  color: white;
+}
+#rodape .redes-sociais a:hover{
+  color: orange;
+  transform: scale(1.2);
+}
+#rodape > p{
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+@media (max-width: 800px) {
+  nav {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .mobile-menu.active {
+    display: flex;
+  }
+  .mobile-menu a{
+    padding: 0.9rem 0;
+  }
 }
 
