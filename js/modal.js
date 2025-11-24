@@ -93,9 +93,9 @@ function abrirModalProduto(produto) {
 
         const selectedSabor = button.dataset.value;
         const sorveteImages = [
-          'img/IMG-20251109-WA0017.jpg', // Baunilha
-          'img/IMG-20251109-WA0019.jpg', // Chocolate
-          'img/IMG-20251109-WA0015.jpg'  // Morango
+          'img/sorvetedebaunilha.jpg', // Baunilha
+          'img/sorvetechocolate.jpg', // Chocolate
+          'img/sorvetemorango.jpg'  // Morango
         ];
         const sorveteNames = ['Sorvete Baunilha', 'Sorvete Chocolate', 'Sorvete Morango'];
         const index = sorveteNames.findIndex(name => name.includes(selectedSabor));
