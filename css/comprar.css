@@ -164,6 +164,9 @@
 .hidden {
     display: none;
 }
+.p1{
+    margin: 20px;
+}
 
 .order-summary {
     background: white;

@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <title>Finalizar Compra</title>
 </head>
 <body>
@@ -29,27 +30,35 @@
                     <form id="address-form">
                         <div class="form-group">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" id="nome" name="nome" required>
+                            <input type="text" id="nome" name="nome" >
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" >
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" name="telefone" required>
+                            <input type="tel" id="telefone" name="telefone" >
                         </div>
                         <div class="form-group">
                             <label for="cep">CEP</label>
-                            <input type="text" id="cep" name="cep" required>
+                            <input type="text" id="cep" name="cep" >
                         </div>
                         <div class="form-group">
                             <label for="bairro">Bairro</label>
-                            <input type="text" id="bairro" name="bairro" required>
+                            <input type="text" id="bairro" name="bairro" >
                         </div>
                         <div class="form-group">
                             <label for="endereco">Endereço</label>
-                            <input type="text" id="endereco" name="endereco" required>
+                            <input type="text" id="endereco" name="endereco" >
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" >
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <input type="text" id="estado" name="estado">
                         </div>
                         <div class="form-group">
                             <label for="numero">Número</label>
@@ -81,11 +90,11 @@
                                     <span>PIX</span>
                                 </label>
                             </div>
-                            <div class="payment-card" onclick="selectPayment('boleto')">
-                                <input type="radio" id="boleto" name="pagamento" value="boleto">
-                                <label for="boleto">
-                                    <i class="fas fa-barcode"></i>
-                                    <span>Boleto</span>
+                            <div class="payment-card" onclick="selectPayment('dinheiro')">
+                                <input type="radio" id="dinheiro" name="pagamento" value="dinheiro">
+                                <label for="dinheiro">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Dinheiro</span>
                                 </label>
                             </div>
                         </div>
@@ -104,32 +113,14 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="numero-cartao">Número do Cartão</label>
-                                <input type="text" id="numero-cartao" name="numero-cartao" placeholder="1234 5678 9012 3456">
-                            </div>
-                            <div class="form-group">
-                                <label for="nome-cartao">Nome no Cartão</label>
-                                <input type="text" id="nome-cartao" name="nome-cartao">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="validade">Validade</label>
-                                    <input type="text" id="validade" name="validade" placeholder="MM/AA">
-                                </div>
-                                <div class="form-group">
-                                    <label for="cvv">CVV</label>
-                                    <input type="text" id="cvv" name="cvv" placeholder="123">
-                                </div>
-                            </div>
                         </div>
 
                         <div id="pix-fields" class="hidden">
-                            <p>Após confirmar, você receberá o QR Code do PIX.</p>
+                            <p class="p1">Após confirmar, você receberá o QR Code do PIX.</p>
                         </div>
 
-                        <div id="boleto-fields" class="hidden">
-                            <p>O boleto será gerado após a confirmação.</p>
+                        <div id="dinheiro-fields" class="hidden">
+                            <p class="p1">Pagamento em dinheiro na entrega.</p>
                         </div>
 
                         <button type="button" class="btn-prev" onclick="prevStep()">Voltar</button>
@@ -148,9 +139,44 @@
         </section>
     </main>
 
-    <footer id="rodape">
-        <p>&copy; Developer by Lipe Dev.</p>
-    </footer>
+      <footer id="rodape">
+    <div class="rodape-container">
+      <div class="rodape-section">
+        <h3>Sobre Nós</h3>
+        <p>Somos uma lanchonete apaixonada por comida de qualidade. Fundada em 2025, nossa missão é oferecer refeições rápidas e deliciosas para todos os gostos. Utilizamos ingredientes frescos e selecionados para garantir o melhor sabor em cada mordida.</p>
+      </div>
+      <div class="rodape-section">
+        <h3>Contato</h3>
+        <p><i class="fas fa-phone"></i> (85) 1234-5678</p>
+        <p><i class="fas fa-envelope"></i> deliciousburger@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Parangaba, 99 - , CE</p>
+      </div>
+      <div class="rodape-section">
+        <h3>Horários</h3>
+        <p>Seg-Sex: 8h-18h</p>
+        <p>Sáb: 9h-16h</p>
+        <p>Dom: Fechado</p>
+      </div>
+      <div class="rodape-section">
+        <h3>Pagamentos</h3>
+        <div class="formas-pagamento-rodape">
+          <span><i class="fas fa-money-bill-wave"></i></span>
+          <span><i class="fas fa-credit-card"></i></span>
+          <span><i class="fas fa-qrcode"></i></span>
+          <span><i class="fab fa-cc-visa"></i></span>
+          <span><i class="fab fa-cc-mastercard"></i></span>
+          <span><i class="fab fa-cc-amex"></i></span>
+        </div>
+        <h3>Redes Sociais</h3>
+        <div class="redes-sociais">
+          <a href="https://instagram.com/felipezy_9" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/lipe9" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <p>&copy; Developer by Felipe Silva.</p>
+  </footer>
 
     <script src="js/comprar.js"></script>
 </body>
